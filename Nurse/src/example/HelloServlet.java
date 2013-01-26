@@ -14,6 +14,7 @@ public class HelloServlet extends HttpServlet
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
     throws ServletException, IOException
     {
+    	System.err.println("j'ai recu un get");
         resp.getWriter().println("Hello Servlet World!");
     }
 }
