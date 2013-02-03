@@ -1,0 +1,59 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:sf="http://www.springframework.org/tags/faces"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:spring="http://www.springframework.org/tags">
+
+	<body>
+
+		<h:form id="author">
+			<ui:fragment id="authorFragment">	
+				<h:panelGrid>
+					<h:outputText value="Information :" />
+				</h:panelGrid>
+				
+				<h:panelGrid>
+					<h:panelGroup>
+						<h:dataTable value="#{flowScope.selectedAuthor}" var="selectedAuthor" border="1">
+							<h:column>
+								<f:facet name="header">Firstname</f:facet>
+		       	 				<h:outputText value="#{selectedAuthor.firstname}" />
+		    				</h:column>
+							<h:column>
+								<f:facet name="header">Lastname</f:facet>
+		        				<h:outputText value="#{selectedAuthor.lastname}" />
+		        			</h:column>
+		        			<h:column>
+								<f:facet name="header">Ssid</f:facet>
+		        				<h:outputText value="#{selectedAuthor.ssid}" />
+		        			</h:column>
+							<h:column>
+								<f:facet name="header">Birthday</f:facet>
+		        				<h:outputText value="#{selectedAuthor.birthday}" />
+		        			</h:column>
+						</h:dataTable>
+					</h:panelGroup>
+					
+					<h:panelGroup>
+						<h:outputText value="Books :" />
+					</h:panelGroup>
+					
+					<h:selectManyCheckbox value="#{linkAuthorService.selectedBooksIdStr}">
+				   		<f:selectItems value="#{linkAuthorService.booksMap}" />
+				   	</h:selectManyCheckbox>
+				</h:panelGrid>
+				
+				<h:commandButton action="valid" value="Valid"/>
+				<h:commandButton action="cancel" value="Cancel" />
+			</ui:fragment>
+		</h:form>
+
+	</body>
+
+</ui:composition>

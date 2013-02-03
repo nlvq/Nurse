@@ -1,0 +1,67 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:sf="http://www.springframework.org/tags/faces"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:spring="http://www.springframework.org/tags">
+
+	<body>
+
+		<h:form id="listAuthor">
+			<ui:fragment id="listAuthorFragment">
+				<h:dataTable value="#{flowScope.listAuthor}" var="author" border="1" cellspacing="4">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="SSID" />
+						</f:facet>
+						<h:outputText value="#{author.ssid}" />
+					</h:column>				
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Fisrtname" />
+						</f:facet>
+						<h:outputText value="#{author.firstname}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Lastname" />
+						</f:facet>
+						<h:outputText value="#{author.lastname}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Birthday" />
+						</f:facet>
+						<h:outputText value="#{author.birthday}" />
+					</h:column>
+					<h:column>
+						<h:commandButton action="consult" value="consult" />
+					</h:column>
+					<h:column>
+						<h:commandButton action="modifyAuthor" value="modify" />
+					</h:column>
+					<h:column>
+						<h:commandButton action="removeAuthor" value="remove" />
+					</h:column>
+					<h:column>
+						<h:commandButton action="linkBook" value="link to book" />
+					</h:column>
+				</h:dataTable>
+
+				<h:commandButton action="addAuthor" value="new author" />
+				
+				<h:panelGrid >
+					<h:panelGroup>
+						<h:outputLink value="http://localhost:8080/jsf-webflow-web/">Home</h:outputLink>
+					</h:panelGroup>
+				</h:panelGrid>
+			</ui:fragment>
+		</h:form>
+	</body>
+
+</ui:composition>

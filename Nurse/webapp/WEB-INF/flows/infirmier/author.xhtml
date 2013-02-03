@@ -1,0 +1,72 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:sf="http://www.springframework.org/tags/faces"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:spring="http://www.springframework.org/tags">
+
+	<body>
+
+		<h:form id="author">
+			<ui:fragment id="authorFragment">	
+				<h:panelGrid>
+					<h:outputText value="Information :" />
+				</h:panelGrid>
+				
+				<h:panelGrid>
+					<h:panelGroup>
+						<h:dataTable value="#{flowScope.selectedAuthor}" var="selectedAuthor" border="1">
+							<h:column>
+								<f:facet name="header">Firstname</f:facet>
+		       	 				<h:outputText value="#{selectedAuthor.firstname}" />
+		    				</h:column>
+							<h:column>
+								<f:facet name="header">Lastname</f:facet>
+		        				<h:outputText value="#{selectedAuthor.lastname}" />
+		        			</h:column>
+		        			<h:column>
+								<f:facet name="header">Ssid</f:facet>
+		        				<h:outputText value="#{selectedAuthor.ssid}" />
+		        			</h:column>
+							<h:column>
+								<f:facet name="header">Birthday</f:facet>
+		        				<h:outputText value="#{selectedAuthor.birthday}" />
+		        			</h:column>
+						</h:dataTable>
+					</h:panelGroup>
+					
+					<h:panelGroup>
+						<h:outputText value="Bibliography :" />
+					</h:panelGroup>
+					
+					<h:panelGroup>
+						<h:dataTable value="#{flowScope.books}" var="book" border="1">
+							<h:column>
+								<f:facet name="header">Title</f:facet>
+		       	 				<h:outputText value="#{book.title}" />
+		    				</h:column>
+							<h:column>
+								<f:facet name="header">ISBN</f:facet>
+		        				<h:outputText value="#{book.isbn}" />
+		        			</h:column>
+		        			<h:column>
+								<f:facet name="header">Printed Date</f:facet>
+		        				<h:outputText value="#{book.printedDate}" />
+		        			</h:column>
+						</h:dataTable>
+					</h:panelGroup>
+					
+				</h:panelGrid>
+				
+				<h:commandButton action="back" value="Back" />
+			</ui:fragment>
+		</h:form>
+
+	</body>
+
+</ui:composition>

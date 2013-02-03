@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+    http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<on-start>
+		<evaluate expression="defaultDisplayBookService.getAllDisplayBook()" result="flowScope.listBook" result-type="dataModel"/>
+	</on-start>
+
+	<view-state id="listBook" view="listBook.xhtml">
+		<transition on="consult" to="book">
+			<set name="flowScope.selectedBook" value="listBook.selectedRow" />
+		</transition>
+		<transition on="addBook" to="addBook">
+			<evaluate expression="bookService.setReadOnly(false)"/>
+		</transition>
+		<transition on="modifyBook" to="modifyBook">
+			<evaluate expression="bookService.setReadOnly(false)"/>
+			<evaluate expression="bookService.setDisplayBook(listBook.selectedRow)" />
+		</transition>
+		<transition on="removeBook" to="removeBook">
+			<evaluate expression="bookService.setReadOnly(true)"/>
+			<evaluate expression="bookService.setDisplayBook(listBook.selectedRow)" />
+		</transition>
+	</view-state>
+	
+	<view-state id="book" view="book.xhtml" >
+		<on-render>
+			<evaluate expression="defaultDisplayAuthorService.getDisplayAuthorById(flowScope.selectedBook.authorId)" result="flowScope.author" />
+		</on-render>
+		<transition on="back" to="listBook" />
+	</view-state>
+
+	<view-state id="addBook" view="manageBook.xhtml">
+		<transition on="valid" to="listBook">
+			<evaluate expression="bookService.create()"/>
+			<evaluate expression="defaultDisplayBookService.getAllDisplayBook()" result="flowScope.listBook" />
+		</transition>
+		<transition on="cancel" to="listBook">
+			<evaluate expression="bookService.clear()"/>
+		</transition>
+	</view-state>
+	
+	<view-state id="modifyBook" view="manageBook.xhtml">
+		<transition on="valid" to="listBook">
+			<evaluate expression="bookService.modify()"/>
+			<evaluate expression="defaultDisplayBookService.getAllDisplayBook()" result="flowScope.listBook" />
+		</transition>
+		<transition on="cancel" to="listBook">
+			<evaluate expression="bookService.clear()"/>
+		</transition>
+	</view-state>
+	
+	<view-state id="removeBook" view="manageBook.xhtml">
+		<transition on="valid" to="listBook">
+			<evaluate expression="bookService.remove()"/>
+			<evaluate expression="defaultDisplayBookService.getAllDisplayBook()" result="flowScope.listBook" />
+		</transition>
+		<transition on="cancel" to="listBook">
+			<evaluate expression="bookService.clear()"/>
+		</transition>
+	</view-state>
+	
+</flow>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/95/trunk/jsf-webflow-sample/jsf-webflow-web/src/main/webapp/WEB-INF/flows/author
+END
+author.xhtml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/95/trunk/jsf-webflow-sample/jsf-webflow-web/src/main/webapp/WEB-INF/flows/author/author.xhtml
+END
+author-flow.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/95/trunk/jsf-webflow-sample/jsf-webflow-web/src/main/webapp/WEB-INF/flows/author/author-flow.xml
+END
+listAuthor.xhtml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/95/trunk/jsf-webflow-sample/jsf-webflow-web/src/main/webapp/WEB-INF/flows/author/listAuthor.xhtml
+END
