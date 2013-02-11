@@ -1,4 +1,4 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,34 +13,34 @@ public class Passage implements Serializable{
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
-    int ID = 1;
+    @Column(name="id")
+    long id;
      
-    @Column(name="StartTime")
-    Date StartTime = new java.util.Date();
+    @Column(name="startTime")
+    Date startTime = new java.util.Date();
      
-    @Column(name="EndTime")
-    Date EndTime = new java.util.Date();
+    @Column(name="endTime")
+    Date endTime = new java.util.Date();
 
 	public Passage(Date startTime, Date endTime) {
 		super();
-		StartTime = startTime;
-		EndTime = endTime;
+		this.startTime = startTime;
+		this.endTime = endTime;
 	}
 
 	public Date getStartTime() {
-		return StartTime;
+		return startTime;
 	}
 
 	public void setStartTime(Date startTime) {
-		StartTime = startTime;
+		this.startTime = startTime;
 	}
 
 	public Date getEndTime() {
-		return EndTime;
+		return endTime;
 	}
 
 	public void setEndTime(Date endTime) {
-		EndTime = endTime;
+		this.endTime = endTime;
 	}
 }

@@ -1,4 +1,4 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
 
@@ -12,35 +12,34 @@ public class NursingManager implements Serializable{
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
-    int ID = 1;
+    @Column(name="id")
+    long id;
      
-	@Column(name="LastName")
-	String LastName = "";
+	@Column(name="lastName")
+	String lastName = "";
 
-	@Column(name="FistName")
-	String FistName = "";
-
-	public String getLastName() {
-		return LastName;
-	}
-
-	public void setLastName(String lastName) {
-		LastName = lastName;
-	}
-
-	public String getFistName() {
-		return FistName;
-	}
-
-	public void setFistName(String fistName) {
-		FistName = fistName;
-	}
+	@Column(name="fistName")
+	String fistName = "";
 
 	public NursingManager(String lastName, String fistName) {
 		super();
-		LastName = lastName;
-		FistName = fistName;
+		this.lastName = lastName;
+		this.fistName = fistName;
 	}
-	
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getFistName() {
+		return fistName;
+	}
+
+	public void setFistName(String fistName) {
+		this.fistName = fistName;
+	}
 }

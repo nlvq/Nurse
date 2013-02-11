@@ -1,4 +1,4 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
 
@@ -12,22 +12,22 @@ public class TypeOfLeave implements Serializable{
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
-    int ID = 1;
+    @Column(name="id")
+    long id;
      
-    @Column(name="Name")
-    String Name = "";
+    @Column(name="name")
+    String name = "";
 
 	public TypeOfLeave(String name) {
 		super();
-		Name = name;
+		this.name = name;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 }

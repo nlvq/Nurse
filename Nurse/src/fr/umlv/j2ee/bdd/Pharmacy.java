@@ -1,4 +1,4 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -6,41 +6,41 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Absences")
+@Table(name = "Pharmacy")
  
-public class Absences implements Serializable{
+public class Pharmacy implements Serializable{
     private static final long serialVersionUID = 1L;
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
-    int ID = 1;
+    @Column(name="id")
+    long id;
      
-    @Column(name="Name")
-    String Name = "";
+    @Column(name="name")
+    String name = "";
      
-    @Column(name="PhoneNumber")
-    int PhoneNumber = 00000000;
+    @Column(name="phoneNumber")
+    int phoneNumber = 00000000;
 
-	public Absences(String name, int phoneNumber) {
+	public Pharmacy(String name, int phoneNumber) {
 		super();
-		Name = name;
-		PhoneNumber = phoneNumber;
+		this.name = name;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public int getPhoneNumber() {
-		return PhoneNumber;
+		return phoneNumber;
 	}
 
 	public void setPhoneNumber(int phoneNumber) {
-		PhoneNumber = phoneNumber;
-	}	
+		this.phoneNumber = phoneNumber;
+	}
 }

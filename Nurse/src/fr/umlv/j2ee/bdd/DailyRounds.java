@@ -1,4 +1,4 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
 
@@ -12,22 +12,22 @@ public class DailyRounds implements Serializable{
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
-    int ID = 1;    
+    @Column(name="id")
+    long id;    
      
-    @Column(name="Number")
-    int Number = 1;
+    @Column(name="number")
+    int number = 1;
 
 	public DailyRounds(int number) {
 		super();
-		Number = number;
+		this.number = number;
 	}
 
 	public int getNumber() {
-		return Number;
+		return number;
 	}
 
 	public void setNumber(int number) {
-		Number = number;
-	}	
+		this.number = number;
+	}
 }

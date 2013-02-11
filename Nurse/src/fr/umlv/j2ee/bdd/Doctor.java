@@ -1,4 +1,4 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
 
@@ -12,60 +12,59 @@ public class Doctor implements Serializable{
 
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="ID")
-	int ID = 1;
+	@Column(name="id")
+	long id;
 
-	@Column(name="LastName")
-	String LastName = "";
+	@Column(name="lastName")
+	String lastName = "";
 
-	@Column(name="FistName")
-	String FistName = "";
+	@Column(name="fistName")
+	String fistName = "";
 
-	@Column(name="PhoneNumber")
-	int PhoneNumber = 00000000;
+	@Column(name="phoneNumber")
+	int phoneNumber = 00000000;
 
-	@Column(name="MedicalSpecialty")
-	String MedicalSpecialty = "";
+	@Column(name="medicalSpecialty")
+	String medicalSpecialty = "";
 
-	public Doctor(int iD, String lastName, String fistName, int phoneNumber,
+	public Doctor(String lastName, String fistName, int phoneNumber,
 			String medicalSpecialty) {
 		super();
-		LastName = lastName;
-		FistName = fistName;
-		PhoneNumber = phoneNumber;
-		MedicalSpecialty = medicalSpecialty;
+		this.lastName = lastName;
+		this.fistName = fistName;
+		this.phoneNumber = phoneNumber;
+		this.medicalSpecialty = medicalSpecialty;
 	}
 
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
 
 	public String getFistName() {
-		return FistName;
+		return fistName;
 	}
 
 	public void setFistName(String fistName) {
-		FistName = fistName;
+		this.fistName = fistName;
 	}
 
 	public int getPhoneNumber() {
-		return PhoneNumber;
+		return phoneNumber;
 	}
 
 	public void setPhoneNumber(int phoneNumber) {
-		PhoneNumber = phoneNumber;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getMedicalSpecialty() {
-		return MedicalSpecialty;
+		return medicalSpecialty;
 	}
 
 	public void setMedicalSpecialty(String medicalSpecialty) {
-		MedicalSpecialty = medicalSpecialty;
+		this.medicalSpecialty = medicalSpecialty;
 	}
-
 }

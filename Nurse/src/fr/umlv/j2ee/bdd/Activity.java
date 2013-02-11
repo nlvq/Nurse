@@ -1,7 +1,6 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.*;
 
@@ -13,8 +12,8 @@ public class Activity implements Serializable{
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
-    int ID = 1;
+    @Column(name="id")
+    long id;
      
     @Column(name="description")
     String description = "";

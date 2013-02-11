@@ -1,4 +1,4 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,191 +13,192 @@ public class Patient implements Serializable{
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="SecurityNumber")
-    int SecurityNumber = 1;
+    @Column(name="securityNumber")
+    int securityNumber = 1;
      
-    @Column(name="LastName")
-    String LastName = "";
+    @Column(name="lLastName")
+    String lastName = "";
      
-    @Column(name="FistName")
-    String FistName = "";
+    @Column(name="fistName")
+    String fistName = "";
      
-    @Column(name="Birthday")
-    Date Birthday = new java.util.Date();
+    @Column(name="birthday")
+    Date birthday = new java.util.Date();
      
-    @Column(name="Address")
-    String Address = "";
+    @Column(name="address")
+    String address = "";
      
-    @Column(name="PhoneNumber")
-    int PhoneNumber = 00000000;
+    @Column(name="phoneNumber")
+    int phoneNumber = 00000000;
      
-    @Column(name="ReferencePersonName")
-    String ReferencePersonName = "";
+    @Column(name="referencePersonName")
+    String referencePersonName = "";
      
-    @Column(name="ReferencePersonPhoneNumber")
-    int ReferencePersonPhoneNumber = 00000000;
+    @Column(name="referencePersonPhoneNumber")
+    int referencePersonPhoneNumber = 00000000;
      
-    @Column(name="Key")
-    int Key = 1;
+    @Column(name="key")
+    int key = 1;
      
-    @Column(name="Priority")
-    int Priority = 1;
+    @Column(name="priority")
+    int priority = 1;
      
-    @Column(name="PassingDay")
-    Date PassingDay = new java.util.Date();
+    @Column(name="passingDay")
+    Date passingDay = new java.util.Date();
     
-    @Column(name="TypeOfNursingStaffToPass")
-    String TypeOfNursingStaffToPass = "";
+    @Column(name="typeOfNursingStaffToPass")
+    String typeOfNursingStaffToPass = "";
      
-    @Column(name="NumberOfNursin")
-    int NumberOfNursin = 1;
+    @Column(name="numberOfNursin")
+    int numberOfNursin = 1;
     
     @ManyToOne
     private Laboratory laboratory;
     
     @ManyToOne
     private Doctor doctor;
-
-
-	public Doctor getDoctor() {
-		return doctor;
-	}
-
-	public void setDoctor(Doctor doctor) {
-		this.doctor = doctor;
-	}
+    
+    @ManyToOne
+    private Pharmacy pharmacy;
 
 	public Patient(int securityNumber, String lastName, String fistName,
 			Date birthday, String address, int phoneNumber,
 			String referencePersonName, int referencePersonPhoneNumber,
 			int key, int priority, Date passingDay,
-			String typeOfNursingStaffToPass, int numberOfNursin) {
+			String typeOfNursingStaffToPass, int numberOfNursin,
+			Laboratory laboratory, Doctor doctor, Pharmacy pharmacy) {
 		super();
-		SecurityNumber = securityNumber;
-		LastName = lastName;
-		FistName = fistName;
-		Birthday = birthday;
-		Address = address;
-		PhoneNumber = phoneNumber;
-		ReferencePersonName = referencePersonName;
-		ReferencePersonPhoneNumber = referencePersonPhoneNumber;
-		Key = key;
-		Priority = priority;
-		PassingDay = passingDay;
-		TypeOfNursingStaffToPass = typeOfNursingStaffToPass;
-		NumberOfNursin = numberOfNursin;
+		this.securityNumber = securityNumber;
+		this.lastName = lastName;
+		this.fistName = fistName;
+		this.birthday = birthday;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.referencePersonName = referencePersonName;
+		this.referencePersonPhoneNumber = referencePersonPhoneNumber;
+		this.key = key;
+		this.priority = priority;
+		this.passingDay = passingDay;
+		this.typeOfNursingStaffToPass = typeOfNursingStaffToPass;
+		this.numberOfNursin = numberOfNursin;
+		this.laboratory = laboratory;
+		this.doctor = doctor;
+		this.pharmacy = pharmacy;
 	}
 
 	public int getSecurityNumber() {
-		return SecurityNumber;
+		return securityNumber;
 	}
 
 	public void setSecurityNumber(int securityNumber) {
-		SecurityNumber = securityNumber;
+		this.securityNumber = securityNumber;
 	}
 
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
 
 	public String getFistName() {
-		return FistName;
+		return fistName;
 	}
 
 	public void setFistName(String fistName) {
-		FistName = fistName;
+		this.fistName = fistName;
 	}
 
 	public Date getBirthday() {
-		return Birthday;
+		return birthday;
 	}
 
 	public void setBirthday(Date birthday) {
-		Birthday = birthday;
+		this.birthday = birthday;
 	}
 
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
 
 	public int getPhoneNumber() {
-		return PhoneNumber;
+		return phoneNumber;
 	}
 
 	public void setPhoneNumber(int phoneNumber) {
-		PhoneNumber = phoneNumber;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getReferencePersonName() {
-		return ReferencePersonName;
+		return referencePersonName;
 	}
 
 	public void setReferencePersonName(String referencePersonName) {
-		ReferencePersonName = referencePersonName;
+		this.referencePersonName = referencePersonName;
 	}
 
 	public int getReferencePersonPhoneNumber() {
-		return ReferencePersonPhoneNumber;
+		return referencePersonPhoneNumber;
 	}
 
 	public void setReferencePersonPhoneNumber(int referencePersonPhoneNumber) {
-		ReferencePersonPhoneNumber = referencePersonPhoneNumber;
+		this.referencePersonPhoneNumber = referencePersonPhoneNumber;
 	}
 
 	public int getKey() {
-		return Key;
+		return key;
 	}
 
 	public void setKey(int key) {
-		Key = key;
+		this.key = key;
 	}
 
 	public int getPriority() {
-		return Priority;
+		return priority;
 	}
 
 	public void setPriority(int priority) {
-		Priority = priority;
+		this.priority = priority;
 	}
 
 	public Date getPassingDay() {
-		return PassingDay;
+		return passingDay;
 	}
 
 	public void setPassingDay(Date passingDay) {
-		PassingDay = passingDay;
+		this.passingDay = passingDay;
 	}
 
 	public String getTypeOfNursingStaffToPass() {
-		return TypeOfNursingStaffToPass;
+		return typeOfNursingStaffToPass;
 	}
 
 	public void setTypeOfNursingStaffToPass(String typeOfNursingStaffToPass) {
-		TypeOfNursingStaffToPass = typeOfNursingStaffToPass;
+		this.typeOfNursingStaffToPass = typeOfNursingStaffToPass;
 	}
 
 	public int getNumberOfNursin() {
-		return NumberOfNursin;
+		return numberOfNursin;
 	}
 
 	public void setNumberOfNursin(int numberOfNursin) {
-		NumberOfNursin = numberOfNursin;
+		this.numberOfNursin = numberOfNursin;
 	}
 
 	public Laboratory getLaboratory() {
 		return laboratory;
 	}
 
-	public void setLaboratory(Laboratory laboratory) {
-		this.laboratory = laboratory;
+	public Doctor getDoctor() {
+		return doctor;
 	}
-	
+
+	public Pharmacy getPharmacy() {
+		return pharmacy;
+	}
 }

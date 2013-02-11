@@ -1,4 +1,4 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,32 +13,22 @@ public class Absences implements Serializable{
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
-    int ID = 1;
+    @Column(name="id")
+    long id;
      
-    @Column(name="Date")
-    Date Date = new java.util.Date();
+    @Column(name="date")
+    Date date = new java.util.Date();
 
-	public Absences(int iD, java.util.Date date) {
+	public Absences(Date date) {
 		super();
-		ID = iD;
-		Date = date;
-	}
-
-	public int getID() {
-		return ID;
-	}
-
-	public void setID(int iD) {
-		ID = iD;
+		this.date = date;
 	}
 
 	public Date getDate() {
-		return Date;
+		return date;
 	}
 
 	public void setDate(Date date) {
-		Date = date;
+		this.date = date;
 	}
-	
 }

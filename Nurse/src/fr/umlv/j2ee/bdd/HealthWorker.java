@@ -1,4 +1,4 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,96 +13,96 @@ public class HealthWorker implements Serializable{
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
-    int ID = 1;
+    @Column(name="id")
+    long id;
     
-	@Column(name="LastName")
-	String LastName = "";
+	@Column(name="lastName")
+	String lastName = "";
 
-	@Column(name="FistName")
-	String FistName = "";
+	@Column(name="listName")
+	String listName = "";
      
-    @Column(name="Birthday")
-    Date Birthday = new java.util.Date();
+    @Column(name="lirthday")
+    Date birthday = new java.util.Date();
      
-    @Column(name="Address")
-    String Address = "";
+    @Column(name="address")
+    String address = "";
     
-    @Column(name="Type")
-    String Type = "";
+    @Column(name="type")
+    String type = "";
     
-    @Column(name="SecurityNumber")
-    int SecurityNumber = 00000000;
+    @Column(name="securityNumber")
+    int securityNumber = 00000000;
      
-    @Column(name="ReferencePersonName")
-    String ReferencePersonName = "";
-    
-	public HealthWorker(String lastName, String fistName, Date birthday,
+    @Column(name="referencePersonName")
+    String referencePersonName = "";
+
+	public HealthWorker(String lastName, String listName, Date birthday,
 			String address, String type, int securityNumber,
 			String referencePersonName) {
 		super();
-		LastName = lastName;
-		FistName = fistName;
-		Birthday = birthday;
-		Address = address;
-		Type = type;
-		SecurityNumber = securityNumber;
-		ReferencePersonName = referencePersonName;
+		this.lastName = lastName;
+		this.listName = listName;
+		this.birthday = birthday;
+		this.address = address;
+		this.type = type;
+		this.securityNumber = securityNumber;
+		this.referencePersonName = referencePersonName;
 	}
 
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
 
-	public String getFistName() {
-		return FistName;
+	public String getListName() {
+		return listName;
 	}
 
-	public void setFistName(String fistName) {
-		FistName = fistName;
+	public void setListName(String listName) {
+		this.listName = listName;
 	}
 
 	public Date getBirthday() {
-		return Birthday;
+		return birthday;
 	}
 
 	public void setBirthday(Date birthday) {
-		Birthday = birthday;
+		this.birthday = birthday;
 	}
 
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
 
 	public String getType() {
-		return Type;
+		return type;
 	}
 
 	public void setType(String type) {
-		Type = type;
+		this.type = type;
 	}
 
 	public int getSecurityNumber() {
-		return SecurityNumber;
+		return securityNumber;
 	}
 
 	public void setSecurityNumber(int securityNumber) {
-		SecurityNumber = securityNumber;
+		this.securityNumber = securityNumber;
 	}
 
 	public String getReferencePersonName() {
-		return ReferencePersonName;
+		return referencePersonName;
 	}
 
 	public void setReferencePersonName(String referencePersonName) {
-		ReferencePersonName = referencePersonName;
+		this.referencePersonName = referencePersonName;
 	}
 }

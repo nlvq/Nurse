@@ -1,7 +1,6 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.*;
 
@@ -13,23 +12,22 @@ public class Alert implements Serializable{
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
-    int ID = 1;
+    @Column(name="id")
+    long id;
      
-    @Column(name="Description")
-    String Description = "";
+    @Column(name="description")
+    String description = "";
 
-	public Alert(int iD, String description) {
+	public Alert(String description) {
 		super();
-		Description = description;
+		this.description = description;
 	}
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
-     
 }

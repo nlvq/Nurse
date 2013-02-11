@@ -1,4 +1,4 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
 
@@ -12,35 +12,34 @@ public class Laboratory implements Serializable{
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
-    int ID = 1;
+    @Column(name="id")
+    long id;
      
-    @Column(name="Name")
-    String Name = "";
-     
-    @Column(name="PhoneNumber")
-    int PhoneNumber = 00000000;
-
-	public Laboratory(String name, int phoneNumber) {
-		super();
-		Name = name;
-		PhoneNumber = phoneNumber;
-	}
-
-	public String getName() {
-		return Name;
+    public String getName() {
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public int getPhoneNumber() {
-		return PhoneNumber;
+		return phoneNumber;
 	}
 
 	public void setPhoneNumber(int phoneNumber) {
-		PhoneNumber = phoneNumber;
+		this.phoneNumber = phoneNumber;
 	}
-	
+
+	public Laboratory(String name, int phoneNumber) {
+		super();
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+	}
+
+	@Column(name="name")
+    String name = "";
+     
+    @Column(name="phoneNumber")
+    int phoneNumber = 00000000;
 }

@@ -1,4 +1,4 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,34 +13,34 @@ public class Tour implements Serializable{
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
-    int ID = 1;
+    @Column(name="id")
+    long id;
      
-    @Column(name="Date")
-    Date Date = new java.util.Date();
+    @Column(name="date")
+    Date date = new java.util.Date();
      
-    @Column(name="Address")
-    String Address = "";
+    @Column(name="address")
+    String address = "";
 
-	public int getID() {
-		return ID;
+	public Tour(Date date, String address) {
+		super();
+		this.date = date;
+		this.address = address;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 
 	public void setAddress(String address) {
-		Address = address;
-	}
-
-	public Tour(java.util.Date date, String address) {
-		super();
-		Date = date;
-		Address = address;
+		this.address = address;
 	}
 }

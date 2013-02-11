@@ -1,7 +1,6 @@
-package bdd;
+package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.*;
 
@@ -13,36 +12,34 @@ public class ServiceManager implements Serializable{
      
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
-    int ID = 1;
+    @Column(name="id")
+    long id;
      
-	@Column(name="LastName")
-	String LastName = "";
+	@Column(name="lastName")
+	String lastName = "";
 
-	@Column(name="FistName")
-	String FistName = "";
+	@Column(name="fistName")
+	String fistName = "";
 
 	public ServiceManager(String lastName, String fistName) {
 		super();
-		LastName = lastName;
-		FistName = fistName;
+		this.lastName = lastName;
+		this.fistName = fistName;
 	}
 
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
 
 	public String getFistName() {
-		return FistName;
+		return fistName;
 	}
 
 	public void setFistName(String fistName) {
-		FistName = fistName;
+		this.fistName = fistName;
 	}
-
-	
 }
