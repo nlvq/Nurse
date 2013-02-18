@@ -4,3 +4,6 @@
 *.jar
 *.war
 *.ear
+/Nurse/mv-rdvmedecins-ejb-dao-jpa/target/
+/Nurse/mv-rdvmedecins-ejb-metier/target/
+/Nurse/mv-rdvmedecins-pf/target/
