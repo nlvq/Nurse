@@ -1,31 +1,32 @@
-package fr.umlv.j2ee.bdd;
+package fr.umlv.nurse.persistence;
 
-import java.io.Serializable;
-import java.util.Date;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "Pharmacy")
- 
-public class Pharmacy implements Serializable{
-    private static final long serialVersionUID = 1L;
-     
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="id")
-    long id;
-     
-    @Column(name="name")
-    String name = "";
-     
-    @Column(name="phoneNumber")
-    int phoneNumber = 00000000;
+@Table(name = "PHARMACY")
+public class Pharmacy {
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "PHARMACY_ID")
+	private int id;
 
-	public Pharmacy(String name, int phoneNumber) {
-		super();
-		this.name = name;
-		this.phoneNumber = phoneNumber;
+	@Column(name = "PHARMACY_NAME")
+	private String name;
+	
+	@Column(name = "PHARMACY_PHONE")
+	private int phone;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -36,11 +37,39 @@ public class Pharmacy implements Serializable{
 		this.name = name;
 	}
 
-	public int getPhoneNumber() {
-		return phoneNumber;
+	public int getPhone() {
+		return phone;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhone(int phone) {
+		this.phone = phone;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Pharmacy))
+			return false;
+		Pharmacy other = (Pharmacy) obj;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
 	}
 }
