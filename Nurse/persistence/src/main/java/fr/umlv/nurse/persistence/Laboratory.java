@@ -1,14 +1,13 @@
 package fr.umlv.j2ee.bdd;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Pharmacy")
+@Table(name = "Laboratory")
  
-public class Pharmacy implements Serializable{
+public class Laboratory implements Serializable{
     private static final long serialVersionUID = 1L;
      
     @Id
@@ -16,19 +15,7 @@ public class Pharmacy implements Serializable{
     @Column(name="id")
     long id;
      
-    @Column(name="name")
-    String name = "";
-     
-    @Column(name="phoneNumber")
-    int phoneNumber = 00000000;
-
-	public Pharmacy(String name, int phoneNumber) {
-		super();
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getName() {
+    public String getName() {
 		return name;
 	}
 
@@ -43,4 +30,16 @@ public class Pharmacy implements Serializable{
 	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
+	public Laboratory(String name, int phoneNumber) {
+		super();
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+	}
+
+	@Column(name="name")
+    String name = "";
+     
+    @Column(name="phoneNumber")
+    int phoneNumber = 00000000;
 }
