@@ -6,40 +6,31 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Laboratory")
- 
-public class Laboratory implements Serializable{
+public class Laboratory implements Serializable {
+
     private static final long serialVersionUID = 1L;
-     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="id")
-    long id;
-     
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private long id;
+    @Column(name = "name")
+    String name;
+    @Column(name = "phoneNumber")
+    private int phoneNumber;
+
     public String getName() {
-		return name;
-	}
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public int getPhoneNumber() {
-		return phoneNumber;
-	}
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
 
-	public void setPhoneNumber(int phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public Laboratory(String name, int phoneNumber) {
-		super();
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-	}
-
-	@Column(name="name")
-    String name = "";
-     
-    @Column(name="phoneNumber")
-    int phoneNumber = 00000000;
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

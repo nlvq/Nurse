@@ -7,102 +7,82 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "HealthWorker")
- 
-public class HealthWorker implements Serializable{
+public class HealthWorker implements Serializable {
+
     private static final long serialVersionUID = 1L;
-     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="id")
-    long id;
-    
-	@Column(name="lastName")
-	String lastName = "";
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private long id;
+    @Column(name = "lastName")
+    private String lastName;
+    @Column(name = "listName")
+    private String listName;
+    @Column(name = "lirthday")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date birthday;
+    @Column(name = "address")
+    private String address;
+    @Column(name = "type")
+    private String type;
+    @Column(name = "securityNumber")
+    private int securityNumber;
+    @Column(name = "referencePersonName")
+    private String referencePersonName;
 
-	@Column(name="listName")
-	String listName = "";
-     
-    @Column(name="lirthday")
-    Date birthday = new java.util.Date();
-     
-    @Column(name="address")
-    String address = "";
-    
-    @Column(name="type")
-    String type = "";
-    
-    @Column(name="securityNumber")
-    int securityNumber = 00000000;
-     
-    @Column(name="referencePersonName")
-    String referencePersonName = "";
+    public String getLastName() {
+        return lastName;
+    }
 
-	public HealthWorker(String lastName, String listName, Date birthday,
-			String address, String type, int securityNumber,
-			String referencePersonName) {
-		super();
-		this.lastName = lastName;
-		this.listName = listName;
-		this.birthday = birthday;
-		this.address = address;
-		this.type = type;
-		this.securityNumber = securityNumber;
-		this.referencePersonName = referencePersonName;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getListName() {
+        return listName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public void setListName(String listName) {
+        this.listName = listName;
+    }
 
-	public String getListName() {
-		return listName;
-	}
+    public Date getBirthday() {
+        return birthday;
+    }
 
-	public void setListName(String listName) {
-		this.listName = listName;
-	}
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
-	public Date getBirthday() {
-		return birthday;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public int getSecurityNumber() {
+        return securityNumber;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setSecurityNumber(int securityNumber) {
+        this.securityNumber = securityNumber;
+    }
 
-	public int getSecurityNumber() {
-		return securityNumber;
-	}
+    public String getReferencePersonName() {
+        return referencePersonName;
+    }
 
-	public void setSecurityNumber(int securityNumber) {
-		this.securityNumber = securityNumber;
-	}
-
-	public String getReferencePersonName() {
-		return referencePersonName;
-	}
-
-	public void setReferencePersonName(String referencePersonName) {
-		this.referencePersonName = referencePersonName;
-	}
+    public void setReferencePersonName(String referencePersonName) {
+        this.referencePersonName = referencePersonName;
+    }
 }

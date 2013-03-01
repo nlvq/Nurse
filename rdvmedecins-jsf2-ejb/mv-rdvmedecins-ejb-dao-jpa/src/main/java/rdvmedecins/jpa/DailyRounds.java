@@ -13,15 +13,11 @@ public class DailyRounds implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id")
-    long id;    
+    private long id;    
      
     @Column(name="number")
-    int number = 1;
+    private int number;
 
-	public DailyRounds(int number) {
-		super();
-		this.number = number;
-	}
 
 	public int getNumber() {
 		return number;

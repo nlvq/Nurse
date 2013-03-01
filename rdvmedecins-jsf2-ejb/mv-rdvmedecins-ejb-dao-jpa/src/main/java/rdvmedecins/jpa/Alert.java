@@ -13,15 +13,10 @@ public class Alert implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id")
-    long id;
+    private long id;
      
     @Column(name="description")
-    String description = "";
-
-	public Alert(String description) {
-		super();
-		this.description = description;
-	}
+    private String description;
 
 	public String getDescription() {
 		return description;

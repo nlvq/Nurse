@@ -7,52 +7,43 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "LeaveRequest")
- 
-public class LeaveRequest implements Serializable{
+public class LeaveRequest implements Serializable {
+
     private static final long serialVersionUID = 1L;
-     
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="ID")
-	int ID = 1;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    private int id;
+    @Column(name = "startTime")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date startTime;
+    @Column(name = "endTime")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date endTime;
+    @Column(name = "description")
+    private String description;
 
-	@Column(name="StartTime")
-	Date StartTime = new java.util.Date();
+    public Date getstartTime() {
+        return startTime;
+    }
 
-	@Column(name="EndTime")
-	Date EndTime = new java.util.Date();
+    public void setstartTime(Date startTime) {
+        startTime = startTime;
+    }
 
-	@Column(name="Description")
-	String Description = "";
+    public Date getendTime() {
+        return endTime;
+    }
 
-	public LeaveRequest(Date startTime, Date endTime, String description) {
-		super();
-		StartTime = startTime;
-		EndTime = endTime;
-		Description = description;
-	}
+    public void setendTime(Date endTime) {
+        endTime = endTime;
+    }
 
-	public Date getStartTime() {
-		return StartTime;
-	}
+    public String getdescription() {
+        return description;
+    }
 
-	public void setStartTime(Date startTime) {
-		StartTime = startTime;
-	}
-
-	public Date getEndTime() {
-		return EndTime;
-	}
-
-	public void setEndTime(Date endTime) {
-		EndTime = endTime;
-	}
-
-	public String getDescription() {
-		return Description;
-	}
-
-	public void setDescription(String description) {
-		Description = description;
-	}	
+    public void setdescription(String description) {
+        description = description;
+    }
 }

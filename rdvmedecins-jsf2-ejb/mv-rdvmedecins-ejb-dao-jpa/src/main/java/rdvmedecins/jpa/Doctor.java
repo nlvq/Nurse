@@ -6,65 +6,51 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Doctor")
+public class Doctor implements Serializable {
 
-public class Doctor implements Serializable{
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private long id;
+    @Column(name = "lastName")
+    private String lastName;
+    @Column(name = "fistName")
+    private String fistName;
+    @Column(name = "phoneNumber")
+    private int phoneNumber;
+    @Column(name = "medicalSpecialty")
+    private String medicalSpecialty;
 
-	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
-	long id;
+    public String getLastName() {
+        return lastName;
+    }
 
-	@Column(name="lastName")
-	String lastName = "";
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	@Column(name="fistName")
-	String fistName = "";
+    public String getFistName() {
+        return fistName;
+    }
 
-	@Column(name="phoneNumber")
-	int phoneNumber = 00000000;
+    public void setFistName(String fistName) {
+        this.fistName = fistName;
+    }
 
-	@Column(name="medicalSpecialty")
-	String medicalSpecialty = "";
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
 
-	public Doctor(String lastName, String fistName, int phoneNumber,
-			String medicalSpecialty) {
-		super();
-		this.lastName = lastName;
-		this.fistName = fistName;
-		this.phoneNumber = phoneNumber;
-		this.medicalSpecialty = medicalSpecialty;
-	}
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getMedicalSpecialty() {
+        return medicalSpecialty;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getFistName() {
-		return fistName;
-	}
-
-	public void setFistName(String fistName) {
-		this.fistName = fistName;
-	}
-
-	public int getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(int phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getMedicalSpecialty() {
-		return medicalSpecialty;
-	}
-
-	public void setMedicalSpecialty(String medicalSpecialty) {
-		this.medicalSpecialty = medicalSpecialty;
-	}
+    public void setMedicalSpecialty(String medicalSpecialty) {
+        this.medicalSpecialty = medicalSpecialty;
+    }
 }

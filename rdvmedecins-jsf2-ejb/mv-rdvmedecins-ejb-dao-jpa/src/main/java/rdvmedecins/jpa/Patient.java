@@ -14,43 +14,45 @@ public class Patient implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="securityNumber")
-    int securityNumber = 1;
+    private int securityNumber;
      
     @Column(name="lLastName")
-    String lastName = "";
+    private String lastName;
      
     @Column(name="fistName")
-    String fistName = "";
+    private String fistName;
      
     @Column(name="birthday")
-    Date birthday = new java.util.Date();
+    @Temporal(javax.persistence.TemporalType.DATE)
+    Date birthday;
      
     @Column(name="address")
-    String address = "";
+    private String address;
      
     @Column(name="phoneNumber")
-    int phoneNumber = 00000000;
+    private int phoneNumber;
      
     @Column(name="referencePersonName")
-    String referencePersonName = "";
+    private String referencePersonName;
      
     @Column(name="referencePersonPhoneNumber")
-    int referencePersonPhoneNumber = 00000000;
+    private int referencePersonPhoneNumber;
      
     @Column(name="key")
-    int key = 1;
+    private int key;
      
     @Column(name="priority")
-    int priority = 1;
+    private int priority;
      
     @Column(name="passingDay")
-    Date passingDay = new java.util.Date();
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date passingDay;
     
     @Column(name="typeOfNursingStaffToPass")
-    String typeOfNursingStaffToPass = "";
+    private String typeOfNursingStaffToPass;
      
     @Column(name="numberOfNursin")
-    int numberOfNursin = 1;
+    private int numberOfNursin = 1;
     
     @ManyToOne
     private Laboratory laboratory;
@@ -60,31 +62,6 @@ public class Patient implements Serializable{
     
     @ManyToOne
     private Pharmacy pharmacy;
-
-	public Patient(int securityNumber, String lastName, String fistName,
-			Date birthday, String address, int phoneNumber,
-			String referencePersonName, int referencePersonPhoneNumber,
-			int key, int priority, Date passingDay,
-			String typeOfNursingStaffToPass, int numberOfNursin,
-			Laboratory laboratory, Doctor doctor, Pharmacy pharmacy) {
-		super();
-		this.securityNumber = securityNumber;
-		this.lastName = lastName;
-		this.fistName = fistName;
-		this.birthday = birthday;
-		this.address = address;
-		this.phoneNumber = phoneNumber;
-		this.referencePersonName = referencePersonName;
-		this.referencePersonPhoneNumber = referencePersonPhoneNumber;
-		this.key = key;
-		this.priority = priority;
-		this.passingDay = passingDay;
-		this.typeOfNursingStaffToPass = typeOfNursingStaffToPass;
-		this.numberOfNursin = numberOfNursin;
-		this.laboratory = laboratory;
-		this.doctor = doctor;
-		this.pharmacy = pharmacy;
-	}
 
 	public int getSecurityNumber() {
 		return securityNumber;

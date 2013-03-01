@@ -7,40 +7,33 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Leave")
- 
-public class Leave implements Serializable{
+public class Leave implements Serializable {
+
     private static final long serialVersionUID = 1L;
-     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="id")
-    long id;
-     
-    @Column(name="startTime")
-    Date startTime = new java.util.Date();
-     
-    @Column(name="endTime")
-    Date endTime = new java.util.Date();
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private long id;
+    @Column(name = "startTime")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date startTime;
+    @Column(name = "endTime")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date endTime;
 
-	public Leave(Date startTime, Date endTime) {
-		super();
-		this.startTime = startTime;
-		this.endTime = endTime;
-	}
+    public Date getStartTime() {
+        return startTime;
+    }
 
-	public Date getStartTime() {
-		return startTime;
-	}
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
 
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
-	}
+    public Date getEndTime() {
+        return endTime;
+    }
 
-	public Date getEndTime() {
-		return endTime;
-	}
-
-	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
-	}
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
 }
