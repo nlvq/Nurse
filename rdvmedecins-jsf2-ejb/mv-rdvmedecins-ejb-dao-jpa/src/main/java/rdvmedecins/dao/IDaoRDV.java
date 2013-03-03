@@ -8,7 +8,7 @@ import rdvmedecins.jpa.Creneau;
 import rdvmedecins.jpa.Medecin;
 import rdvmedecins.jpa.Rv;
 
-public interface IDao {
+public interface IDaoRDV {
 
   // liste des clients
   public List<Client> getAllClients();
