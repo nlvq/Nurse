@@ -1,6 +1,8 @@
 package rdvmedecins.dao;
 
 import javax.ejb.EJB;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import org.junit.Test;
 import rdvmedecins.jpa.Pharmacy;
@@ -11,10 +13,17 @@ import rdvmedecins.jpa.Pharmacy;
  */
 public class testPharmacyDAO {
 
-    @EJB
+    @PersistenceContext
     private IPharmacyDAO dao;
+    
+    
+    private void init() {
+    	EntityManagerFactory emf = Persistence.createEntityManagerFactory("Test");
+    	dao.setEntityManager(emf.createEntityManager());
+    }
 
     private Pharmacy createPharmacy() {
+    	init();
         Pharmacy p = new Pharmacy();
         p.setId(1);
         p.setName("test");
@@ -29,3 +38,4 @@ public class testPharmacyDAO {
         //assertEquals(p, dao.getPharmacyById(1));
     }
 }
+

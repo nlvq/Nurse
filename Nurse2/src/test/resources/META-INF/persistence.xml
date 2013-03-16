@@ -1,0 +1,39 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+
+	<persistence-unit name="Test" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	    <jta-data-source>jdbc/datasource</jta-data-source>
+
+		<class>fr.umlv.jee.entity.Absences</class>
+		<class>fr.umlv.jee.entity.Activity</class>
+		<class>fr.umlv.jee.entity.Alert</class>
+		<class>fr.umlv.jee.entity.DailyRounds</class>
+		<class>fr.umlv.jee.entity.Doctor</class>
+		<class>fr.umlv.jee.entity.Evaluation</class>
+		<class>fr.umlv.jee.entity.HealthWorker</class>
+		<class>fr.umlv.jee.entity.Laboratory</class>
+		<class>fr.umlv.jee.entity.Leave</class>
+		<class>fr.umlv.jee.entity.LeaveRequest</class>
+		<class>fr.umlv.jee.entity.NursingManager</class>
+		<class>fr.umlv.jee.entity.Passage</class>
+		<class>fr.umlv.jee.entity.Patient</class>
+		<class>fr.umlv.jee.entity.Pharmacy</class>
+		<class>fr.umlv.jee.entity.ServiceManager</class>
+		<class>fr.umlv.jee.entity.Tour</class>
+		<class>fr.umlv.jee.entity.TypeOfLeave</class>
+
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.batch_size" value="20" />
+			<property name="hibernate.connection.driver_class" value="org.h2.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:h2:mem:test_db;" />
+		</properties>
+	</persistence-unit>
+</persistence>
